@@ -1,0 +1,9 @@
+./MAPD -m kiva-10-500-5.map -a kiva-10-500-5.map -t 0.task -c 60 -s PP --capacity 1 --objective total-travel-delay --only-update-top --kiva -o path/to/output/file
+
+Per PP(MCA) con 10 agenti e 500 task
+./MAPD -m kiva-10-500-5.map -a kiva-10-500-5.map -t 0.task -c 60 -s PP --capacity 1 --objective total-travel-delay --only-update-top --kiva --screen 2  -o output_PP_1.txt
+
+
+Per PP(MCA) con 20 agenti e 500 task
+./MAPD -m kiva-20-500-5.map -a kiva-20-500-5.map -t 0.task -c 60 -s PP --capacity 1 --objective total-travel-delay --only-update-top --kiva --screen 2  -o output_PP_2.txt
+
