@@ -23,9 +23,9 @@ Il progetto MCA-RMCA offre una soluzione alternativa al problema Path-Finding e 
 
 ## Descrizione del progetto
 Il progetto prende in input:
-1.una mappa contenente informazioni riguardanti gli agenti, gli ostacoli e le stazioni
-2.un insieme di task (start, goal)
-3.un assegnamento dei task ai vari agenti
+1. una mappa contenente informazioni riguardanti gli agenti, gli ostacoli e le stazioni
+2. un insieme di task (start, goal)
+3. un assegnamento dei task ai vari agenti
 Restituendo in output i percorsi di ogni agente privi di conflitti.
 Per farlo viene utilizzato un algoritmo che tramite una matrice registra la posizione degli agenti nel tempo prevedendo e risolvendo eventuali conflitti cambiando, all'occorrenza, il percorso degli agenti interessati.
 
