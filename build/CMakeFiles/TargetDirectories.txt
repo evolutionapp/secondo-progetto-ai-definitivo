@@ -1,0 +1,3 @@
+/home/alberto/Scrivania/AI progetto2/Progetto/MCA-RMCA-main/build/CMakeFiles/MAPD.dir
+/home/alberto/Scrivania/AI progetto2/Progetto/MCA-RMCA-main/build/CMakeFiles/edit_cache.dir
+/home/alberto/Scrivania/AI progetto2/Progetto/MCA-RMCA-main/build/CMakeFiles/rebuild_cache.dir
