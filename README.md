@@ -1,5 +1,5 @@
 # README #
-w
+
 
 Questa repository contiene una modifica del seguente progetto [MCA-RMCA](https://github.com/nobodyczcz/MCA-RMCA).
 Per ulteriori informazioni e librerie necessarie consultare il progetto originale.
@@ -7,6 +7,15 @@ Per ulteriori informazioni e librerie necessarie consultare il progetto original
 
 ## Compilazione
 
+### Dipendenze
+
+Per installare le librerie necessarie alla compilazione del codice è necessario eseguire i seguenti comandi:
+
+```
+$ sudo apt-get update
+$ sudo apt-get install sparsehash
+$ sudo apt-get install libboost-all-dev
+```
 
 Clona questa repository.
 
