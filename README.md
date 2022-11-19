@@ -100,11 +100,118 @@ Agent: 0, Delay: 308 , Cost: 154, plan:
 		6 : (2,29)->
 ```
 L'output è diviso in due sezioni:
-**Azioni Agente**
+
+**-Azioni Agente**
 Per ogni agente specifica le azioni che deve compiere che possono essere di tipo START, PICK UP, DROP OFF e DOCKER.
 Ogni azione è formato dalla seguente tupla (ideal_action_time, posizione, delay, tipo, tempo di rilascio).
-**Percorsi Agenti**
+
+**-Percorsi Agenti**
 Per ogni agente specifica il percorso senza conflitti calcolato dal programma. Il percorso presenta il timestamp e la relativa posizione dell'agente in quell'istante. 
+
+## Esempio di esecuzione e risultati
+Di seguito presentiamo un esempio di esecuzione del programma in cui viene mostrato il calcolo del percorso e la risoluzione dei conflitti.
+Nella prima parte viene presentato il task da svolgere con i relativi parametri:
+
+**-0** indica il tempo al quale viene generato il task
+
+**-61** indica la coordinata di start del task 
+
+**-62** indica la coordinata di goal del task
+
+**-Altri parametri** non necessari nell'esempio proposto
+
+#### Task
+```
+0	61	62	0	0
+0	62	61	0	0
+```
+Di seguito presentiamo gli assegnamenti dei task sopra riportati agli agenti. 
+
+Il task 0 <0, 61, 62, 0, 0> è assegnato all'agente 1.
+
+Il task 1 <0, 62, 61, 0, 0> è assegnato all'agente 1.
+
+```
+20 //numero di agenti
+2 //numero di task
+//idAgente idTasks(-1 numero di terminazione riga)
+0  -1
+1 0 -1
+2 1 -1
+3 -1
+4 -1
+5 -1
+6 -1
+7 -1
+8 -1
+9 -1
+10 -1
+11 -1
+12 -1
+13 -1
+14 -1
+15 -1
+16 -1
+17 -1
+18 -1
+19 -1
+```
+#### Mappa
+Presentiamo la mappa di riferimento interpretata nel seguente modo:
+
+**e** indica una stazione di start o goal per un task
+
+**.** indica lo spazio percorribile
+
+**@** indica un ostacolo
+
+**r** indica un agente
+
+A1 e A2 rappresentano gli agenti a cui sono stati assegnati i task e T1 e T2 i relativi task da svolgere. 
+
+A1 porterà T1 in posizione T2
+
+A2 porterà T2 in posizione T1
+
+In questo scenario per portare a termine il loro compito i due agenti dovrebbero scontrarsi ovvero creare un conflitto.
+
+```
+...................................
+.ee..e.eeeeeeeeee.eeeeeeeeee.e..ee.
+.e..ee.@@@@@@@@@@.@@@@@@@@@@.ee.ee.
+.ee.ee.eeeeeeeeee.eeeeeeeeee.er.ee.
+..e.T1A1.......................T2A2.e..
+.rr.e..eeeeeeeeee.eeeeeeeeee.er.e..
+.ee.ee.@@@@@@@@@@.@@@@@@@@@@.ee..e.
+.ee..e.eeeeeeeeee.eeeeeeeeee..e.re.
+.e..re.......................ee.re.
+....ee.eeeeeeeeee.eeeeeeeeee.e..rr.
+.ee..e.@@@@@@@@@@.@@@@@@@@@@.e..e..
+.ee.ee.eeeeeeeeee.eeeeeeeeee.er.ee.
+.ee.ee........................e.re.
+.er.ee.eeeeeeeeee.eeeeeeeeee.e..re.
+..e.ee.@@@@@@@@@@.@@@@@@@@@@.ee.e..
+.ee.e..eeeeeeeeee.eeeeeeeeee..r..r.
+.ee..e.......................ee.er.
+..e.ee.eeeeeeeeee.eeeeeeeeee.ee.er.
+.ee.ee.@@@@@@@@@@.@@@@@@@@@@.ee.re.
+..e..e.eeeeeeeeee.eeeeeeeeee.ee....
+...................................
+```
+#### Percorso
+Come mostrato nella seguente porzione di risultato il programma riconosce e risolve i conflitti tra i percorsi. Infatti i due agenti dovrebbero incorntrarsi al tempo 14 ma per evitare collisioni all'agente 2 viene assegnato un percorso diverso che lo fa deviare verso (4,18).   
+```
+Agent: 1			Agente: 2
+10 : (5,14)->			10 : (5,21)->
+11 : (5,15)->			11 : (5,20)->
+12 : (5,16)->			12 : (5,19)->
+13 : (5,17)->			13 : (5,18)->
+14 : (5,18)->			14 : (4,18)->
+15 : (5,19)->			15 : (4,17)->
+16 : (5,20)->			16 : (4,16)->
+
+```
+I percorsi calcolati dal programma minimizzano il total-travel time e sono privi di conflitti.
 
 ### Vedi anche 
 [
