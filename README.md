@@ -38,7 +38,15 @@ Il progetto prende in input:
 
 
 Restituendo in output i percorsi di ogni agente privi di conflitti.
-Per farlo viene utilizzato un algoritmo che tramite una matrice registra la posizione degli agenti nel tempo prevedendo e risolvendo eventuali conflitti cambiando, all'occorrenza, il percorso degli agenti interessati.
+Per farlo viene utilizzato un algoritmo chiamato CBS (Conflict-based search) che tramite una matrice registra la posizione degli agenti nel tempo prevedendo e risolvendo eventuali conflitti cambiando, all'occorrenza, il percorso degli agenti interessati.
+Di seguito una breve descrizione del funzionamento:
+
+-Crea una struttura dati contenente le informazioni sulla posizione occupata dai robot nel tempo durante lo svolgimento dei task.
+
+-Calcola il percorso migliore attraverso un algoritmo di path-finding considerando le posizioni occupate dagli altri robot come ostacoli. Ovviamente l'algoritmo è più elaborato in quanto prende in considerazione la variabile tempo, essendo gli "ostacoli" mobili.
+
+Per maggiori dettagli consultare il seguente documento [Conflict-based search for optimal multi-agent pathfinding](https://www.sciencedirect.com/science/article/pii/S0004370214001386#fg0050).
+L' utilizzo di questo algoritmo nel paper di [riferimento](https://github.com/nobodyczcz/MCA-RMCA) si trova nell' Algoritmo 2.
 
 ## Esempi d'uso e Argomenti
 Mostriamo il comando di esecuzione:
